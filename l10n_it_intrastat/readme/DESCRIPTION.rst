@@ -7,4 +7,4 @@ Dogane.
 Per la dichiarazione è possibile generare il file da presentare all'Agenzia delle Dogane.
 
 Il modulo precarica anche le tabelle necessarie alla compilazione della dichiarazione:
-nomenclature combinate, sezioni doganali, natura dell transazioni, modalità di asporto
+nomenclature combinate, sezioni doganali, natura delle transazioni, modalità di trasporto.
