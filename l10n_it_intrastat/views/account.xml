@@ -87,7 +87,7 @@
                 <tree>
                     <field name="intrastat_code_type"/>
                     <field name="intrastat_code_id"/>
-                    <field name="transation_nature_id"/>
+                    <field name="transaction_nature_id"/>
                     <field name="transport_code_id"/>
                     <field name="weight_kg"/>
                     <field name="amount_currency" sum="Total"/>
@@ -110,7 +110,7 @@
                                <field name="statistic_amount_euro"/>
                            </group>
                            <group>
-                               <field name="transation_nature_id"/>
+                               <field name="transaction_nature_id"/>
                                <field name="weight_kg"/>
                                <field name="additional_units"/>
                                <field name="additional_units_uom"/>
@@ -181,7 +181,7 @@
                     <field name="intrastat_code_id"/>
                     <field name="country_origin_id"/>
                     <field name="country_destination_id"/>
-                    <field name="transation_nature_id"/>
+                    <field name="transaction_nature_id"/>
                     <field name="transport_code_id"/>
                     <field name="weight_kg"/>
                     <field name="additional_units"/>

@@ -25,7 +25,7 @@ class AccountInvoiceLine(models.Model):
             'weight_kg': False,
             'additional_units': False,
             'transport_code_id': False,
-            'transation_nature_id': False,
+            'transaction_nature_id': False,
             'delivery_code_id': False,
             # origin
             'country_origin_id': False,
@@ -115,16 +115,16 @@ class AccountInvoiceLine(models.Model):
         # Transaction
         if self.invoice_id.type in ('out_invoice', 'out_refund'):
             res.update({
-                'transation_nature_id':
-                    company_id.intrastat_sale_transation_nature_id and
-                    company_id.intrastat_sale_transation_nature_id.id or
+                'transaction_nature_id':
+                    company_id.intrastat_sale_transaction_nature_id and
+                    company_id.intrastat_sale_transaction_nature_id.id or
                     False
             })
         elif self.invoice_id.type in ('in_invoice', 'in_refund'):
             res.update({
-                'transation_nature_id':
-                    company_id.intrastat_purchase_transation_nature_id and
-                    company_id.intrastat_purchase_transation_nature_id.id or
+                'transaction_nature_id':
+                    company_id.intrastat_purchase_transaction_nature_id and
+                    company_id.intrastat_purchase_transaction_nature_id.id or
                     False
             })
         # Delivery
@@ -505,8 +505,8 @@ class AccountInvoiceIntrastat(models.Model):
         digits=dp.get_precision('Account'), store=True, readonly=True)
     amount_currency = fields.Float(
         string='Amount in Currency', digits=dp.get_precision('Account'))
-    transation_nature_id = fields.Many2one(
-        'account.intrastat.transation.nature',
+    transaction_nature_id = fields.Many2one(
+        'account.intrastat.transaction.nature',
         string='Transaction Nature')
     weight_kg = fields.Float(string='Net Mass (kg)')
     additional_units = fields.Float(string='Additional Units')

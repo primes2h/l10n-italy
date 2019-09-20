@@ -230,7 +230,7 @@
                             <field name="vat_code" required="1"/>
                         </group>
                         <group>
-                            <field name="transation_nature_id" required="1"/>
+                            <field name="transaction_nature_id" required="1"/>
                         </group>
                     </group>
                     <newline/>
@@ -287,7 +287,7 @@
                             <field name="vat_code" required="1"/>
                         </group>
                         <group>
-                            <field name="transation_nature_id" required="1"/>
+                            <field name="transaction_nature_id" required="1"/>
                         </group>
                     </group>
                     <newline/>
@@ -446,7 +446,7 @@
                             <field name="vat_code" required="1"/>
                         </group>
                         <group>
-                            <field name="transation_nature_id" required="1"/>
+                            <field name="transaction_nature_id" required="1"/>
                         </group>
                     </group>
                     <newline/>
@@ -507,7 +507,7 @@
                             <field name="vat_code" required="1"/>
                         </group>
                         <group>
-                            <field name="transation_nature_id" required="1"/>
+                            <field name="transaction_nature_id" required="1"/>
                         </group>
                     </group>
                     <newline/>

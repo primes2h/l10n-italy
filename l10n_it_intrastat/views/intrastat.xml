@@ -133,9 +133,9 @@
         <!--
         TRANSACTION NATURE
         -->
-        <record id="account_intrastat_transation_nature_view_tree" model="ir.ui.view">
-            <field name="name">account.intrastat.transation.nature.view.tree</field>
-            <field name="model">account.intrastat.transation.nature</field>
+        <record id="account_intrastat_transaction_nature_view_tree" model="ir.ui.view">
+            <field name="name">account.intrastat.transaction.nature.view.tree</field>
+            <field name="model">account.intrastat.transaction.nature</field>
             <field name="arch" type="xml">
                 <tree string="Transaction Nature">
                     <field name="code"/>
@@ -144,9 +144,9 @@
             </field>
         </record>
 
-        <record id="account_intrastat_transation_nature_view_form" model="ir.ui.view">
-            <field name="name">account.intrastat.transation.nature.view.form</field>
-            <field name="model">account.intrastat.transation.nature</field>
+        <record id="account_intrastat_transaction_nature_view_form" model="ir.ui.view">
+            <field name="name">account.intrastat.transaction.nature.view.form</field>
+            <field name="model">account.intrastat.transaction.nature</field>
             <field name="arch" type="xml">
                 <form string="Transaction Nature">
                     <group>
@@ -157,13 +157,13 @@
             </field>
         </record>
 
-        <record id="action_account_intrastat_transation_nature_transport" model="ir.actions.act_window">
+        <record id="action_account_intrastat_transaction_nature_transport" model="ir.actions.act_window">
             <field name="name">Transaction Nature</field>
-            <field name="res_model">account.intrastat.transation.nature</field>
-            <field name="view_id" ref="account_intrastat_transation_nature_view_tree"/>
+            <field name="res_model">account.intrastat.transaction.nature</field>
+            <field name="view_id" ref="account_intrastat_transaction_nature_view_tree"/>
         </record>
 
-        <menuitem id="menu_account_transation_nature" name="Transaction Nature"
-            action="action_account_intrastat_transation_nature_transport" parent="menu_account_intrastat_configuration" sequence="40"/>
+        <menuitem id="menu_account_transaction_nature" name="Transaction Nature"
+            action="action_account_intrastat_transaction_nature_transport" parent="menu_account_intrastat_configuration" sequence="40"/>
 
 </odoo>

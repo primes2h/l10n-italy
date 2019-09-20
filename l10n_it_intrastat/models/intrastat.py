@@ -57,7 +57,7 @@ class AccountIntrastatTransport(models.Model):
 
 
 class AccountIntrastatTransationNature(models.Model):
-    _name = 'account.intrastat.transation.nature'
+    _name = 'account.intrastat.transaction.nature'
     _description = 'Transaction Nature'
 
     code = fields.Char(string='Code', size=1, required=True)

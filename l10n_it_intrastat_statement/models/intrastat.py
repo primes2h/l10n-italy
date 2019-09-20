@@ -983,8 +983,8 @@ class AccountIntrastatStatementSaleSection1(models.Model):
     vat_code = fields.Char(string='Buyer VAT Code')
     amount_euro = fields.Integer(string='Amount in Euro',
                                  digits=dp.get_precision('Account'))
-    transation_nature_id = fields.Many2one(
-        'account.intrastat.transation.nature', string='Transaction Nature')
+    transaction_nature_id = fields.Many2one(
+        'account.intrastat.transaction.nature', string='Transaction Nature')
     intrastat_code_id = fields.Many2one('report.intrastat.code',
                                         string='Goods Code')
     weight_kg = fields.Integer(string='Net Mass (kg)')
@@ -1039,11 +1039,11 @@ class AccountIntrastatStatementSaleSection1(models.Model):
                  or False),
             'amount_euro': self.statement_id.round_min_amount(round(
                 inv_intra_line.amount_euro) or 0, company_id),
-            'transation_nature_id':
-                (inv_intra_line.transation_nature_id
-                 and inv_intra_line.transation_nature_id.id) or
-                (company_id.intrastat_sale_transation_nature_id
-                 and company_id.intrastat_sale_transation_nature_id.id)
+            'transaction_nature_id':
+                (inv_intra_line.transaction_nature_id
+                 and inv_intra_line.transaction_nature_id.id) or
+                (company_id.intrastat_sale_transaction_nature_id
+                 and company_id.intrastat_sale_transaction_nature_id.id)
                 or False,
             'intrastat_code_id': inv_intra_line.intrastat_code_id.id or False,
             'weight_kg': round(inv_intra_line.weight_kg) or 0,
@@ -1098,7 +1098,7 @@ class AccountIntrastatStatementSaleSection1(models.Model):
         rcd += '{:13s}'.format(str(self.amount_euro).zfill(13))
         # Codice della natura della transazione
         rcd += '{:1s}'.format(
-            self.transation_nature_id and self.transation_nature_id.code or '')
+            self.transaction_nature_id and self.transaction_nature_id.code or '')
         # Codice della nomenclatura combinata della merce
         rcd += '{:8s}'.format(
             self.intrastat_code_id and self.intrastat_code_id.name or '')
@@ -1151,8 +1151,8 @@ class AccountIntrastatStatementSaleSection2(models.Model):
     ], 'Adjustment Sign')
     amount_euro = fields.Integer(string='Amount in Euro',
                                  digits=dp.get_precision('Account'))
-    transation_nature_id = fields.Many2one(
-        'account.intrastat.transation.nature', string='Transaction Nature')
+    transaction_nature_id = fields.Many2one(
+        'account.intrastat.transaction.nature', string='Transaction Nature')
     intrastat_code_id = fields.Many2one('report.intrastat.code',
                                         string='Goods Code')
     statistic_amount_euro = fields.Integer(string='Statistic Value in Euro',
@@ -1193,12 +1193,12 @@ class AccountIntrastatStatementSaleSection2(models.Model):
             'amount_euro': self.statement_id.round_min_amount(
                 round(inv_intra_line.amount_euro) or 0, company_id),
             'sign_variation': sign_variation,
-            'transation_nature_id':
-                (inv_intra_line.transation_nature_id and
-                 inv_intra_line.transation_nature_id.id)
+            'transaction_nature_id':
+                (inv_intra_line.transaction_nature_id and
+                 inv_intra_line.transaction_nature_id.id)
                 or
-                (company_id.intrastat_sale_transation_nature_id and
-                 company_id.intrastat_sale_transation_nature_id.id) or
+                (company_id.intrastat_sale_transaction_nature_id and
+                 company_id.intrastat_sale_transaction_nature_id.id) or
                 False,
             'intrastat_code_id': inv_intra_line.intrastat_code_id.id or False,
             'statistic_amount_euro':
@@ -1259,7 +1259,7 @@ class AccountIntrastatStatementSaleSection2(models.Model):
         rcd += '{:13s}'.format(str(self.amount_euro).zfill(13))
         # Codice della natura della transazione
         rcd += '{:1s}'.format(
-            self.transation_nature_id and self.transation_nature_id.code or '')
+            self.transaction_nature_id and self.transaction_nature_id.code or '')
         # Codice della nomenclatura combinata della merce
         rcd += '{:8s}'.format(
             self.intrastat_code_id and self.intrastat_code_id.name or '')
@@ -1570,8 +1570,8 @@ class AccountIntrastatStatementPurchaseSection1(models.Model):
                                  digits=dp.get_precision('Account'))
     amount_currency = fields.Integer(string='Amount in Currency',
                                      digits=dp.get_precision('Account'))
-    transation_nature_id = fields.Many2one(
-        'account.intrastat.transation.nature', string='Transaction Nature')
+    transaction_nature_id = fields.Many2one(
+        'account.intrastat.transaction.nature', string='Transaction Nature')
     intrastat_code_id = fields.Many2one(
         'report.intrastat.code', string='Goods Code')
     weight_kg = fields.Integer(string='Net Mass (kg)')
@@ -1638,14 +1638,14 @@ class AccountIntrastatStatementPurchaseSection1(models.Model):
                     and round(inv_intra_line.amount_currency)
                     or 0
                 ),
-            'transation_nature_id':
+            'transaction_nature_id':
                 (
-                    (inv_intra_line.transation_nature_id
-                     and inv_intra_line.transation_nature_id.id
+                    (inv_intra_line.transaction_nature_id
+                     and inv_intra_line.transaction_nature_id.id
                      )
                     or
-                    (company_id.intrastat_purchase_transation_nature_id
-                     and company_id.intrastat_purchase_transation_nature_id.id
+                    (company_id.intrastat_purchase_transaction_nature_id
+                     and company_id.intrastat_purchase_transaction_nature_id.id
                      )
                     or False
                 ),
@@ -1717,7 +1717,7 @@ class AccountIntrastatStatementPurchaseSection1(models.Model):
         rcd += '{:13s}'.format(str(self.amount_currency).zfill(13))
         # Codice della natura della transazione
         rcd += '{:1s}'.format(
-            self.transation_nature_id and self.transation_nature_id.code or '')
+            self.transaction_nature_id and self.transaction_nature_id.code or '')
         # Codice della nomenclatura combinata della merce
         rcd += '{:8s}'.format(
             self.intrastat_code_id and self.intrastat_code_id.name or '')
@@ -1777,8 +1777,8 @@ class AccountIntrastatStatementPurchaseSection2(models.Model):
                                  digits=dp.get_precision('Account'))
     amount_currency = fields.Integer(string='Amount in Currency',
                                      digits=dp.get_precision('Account'))
-    transation_nature_id = fields.Many2one(
-        'account.intrastat.transation.nature', string='Transaction Nature')
+    transaction_nature_id = fields.Many2one(
+        'account.intrastat.transaction.nature', string='Transaction Nature')
     intrastat_code_id = fields.Many2one(
         'report.intrastat.code', string='Goods Code')
     statistic_amount_euro = fields.Integer(string='Statistic Value in Euro',
@@ -1821,11 +1821,11 @@ class AccountIntrastatStatementPurchaseSection2(models.Model):
             'amount_euro': self.statement_id.round_min_amount(
                 round(inv_intra_line.amount_euro) or 0, company_id),
             'amount_currency': round(inv_intra_line.amount_currency) or 0,
-            'transation_nature_id': (
-                inv_intra_line.transation_nature_id and
-                inv_intra_line.transation_nature_id.id) or (
-                company_id.intrastat_purchase_transation_nature_id and
-                company_id.intrastat_purchase_transation_nature_id.id) or
+            'transaction_nature_id': (
+                inv_intra_line.transaction_nature_id and
+                inv_intra_line.transaction_nature_id.id) or (
+                company_id.intrastat_purchase_transaction_nature_id and
+                company_id.intrastat_purchase_transaction_nature_id.id) or
                 False,
             'intrastat_code_id': inv_intra_line.intrastat_code_id.id or False,
             'statistic_amount_euro':
@@ -1892,7 +1892,7 @@ class AccountIntrastatStatementPurchaseSection2(models.Model):
             rcd += '{:13s}'.format(str(0).zfill(13))
         # Codice della natura della transazione
         rcd += '{:1s}'.format(
-            self.transation_nature_id and self.transation_nature_id.code or '')
+            self.transaction_nature_id and self.transaction_nature_id.code or '')
         # Codice della nomenclatura combinata della merce
         rcd += '{:8s}'.format(
             self.intrastat_code_id and self.intrastat_code_id.name or '')
