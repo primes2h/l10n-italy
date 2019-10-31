@@ -2052,7 +2052,7 @@ class AccountIntrastatStatementPurchaseSection4(models.Model):
     amount_currency = fields.Integer(string='Amount in Currency',
                                      digits=dp.get_precision('Account'))
     invoice_number = fields.Char(string='Invoice Number')
-    invoice_date = fields.Char(string='Invoice Date')
+    invoice_date = fields.Date(string='Invoice Date')
     intrastat_code_id = fields.Many2one('report.intrastat.code',
                                         string='Service Code')
     supply_method = fields.Selection([
