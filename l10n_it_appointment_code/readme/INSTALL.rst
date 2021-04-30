@@ -1,17 +1,17 @@
 **Italiano**
 
-Qualora questo modulo venisse installato in un DB dove ``l10n_it_codici_carica`` è già installato, è necessario eseguire la sequente procedura:
+Qualora questo modulo venisse installato in un DB dove ``l10n_it_codici_carica`` è già installato, è necessario eseguire la seguente procedura.
 
 #. Installare ``openupgradelib``:
 
-    .. code::
+   .. code:: sh
 
-        pip3 install git+https://github.com/OCA/openupgradelib.git@master
+       pip3 install git+https://github.com/OCA/openupgradelib.git@master
 
 #. Lanciare Odoo con il paramentro ``shell``
 #. Eseguire i seguenti comandi:
 
-    .. code::
+   .. code:: python
 
        >>> from openupgradelib import openupgrade
        >>> openupgrade.rename_xmlids(
@@ -61,18 +61,18 @@ Qualora questo modulo venisse installato in un DB dove ``l10n_it_codici_carica``
 
 **English**
 
-When ``l10n_it_codici_carica`` is installed in the database you need to follow the following steps:
+When ``l10n_it_codici_carica`` is installed in the database you need to follow the following steps.
 
 1. Install ``openupgradelib``:
 
-    .. code::
+   .. code:: sh
 
-        pip3 install git+https://github.com/OCA/openupgradelib.git@master
+       pip3 install git+https://github.com/OCA/openupgradelib.git@master
 
 2. Run Odoo with the ``shell`` command
 3. Execute the following commands:
 
-    .. code::
+   .. code:: python
 
        >>> from openupgradelib import openupgrade
        >>> openupgrade.rename_xmlids(
