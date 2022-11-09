@@ -153,15 +153,12 @@ class AccountMove(models.Model):
                             "\n\nVostra dichiarazione d'intento nr %s del %s, "
                             "nostro protocollo nr %s del %s, "
                             "protocollo telematico nr %s."
-                            % (
-                                declaration.partner_document_number,
-                                format_date(
-                                    self.env, declaration.partner_document_date
-                                ),
-                                declaration.number,
-                                format_date(self.env, declaration.date),
-                                declaration.telematic_protocol,
-                            )
+                        ) % (
+                            declaration.partner_document_number,
+                            format_date(self.env, declaration.partner_document_date),
+                            declaration.number,
+                            format_date(self.env, declaration.date),
+                            declaration.telematic_protocol,
                         )
 
     def _prepare_declaration_line(self, amount, lines, tax):
